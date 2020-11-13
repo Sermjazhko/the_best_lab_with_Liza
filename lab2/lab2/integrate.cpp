@@ -1,4 +1,4 @@
-#include "integrate.h"
+﻿#include "integrate.h"
 
 
 double k1(double x) { return x + 1; }
