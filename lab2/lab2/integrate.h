@@ -5,7 +5,11 @@
 using namespace std;
 
 const double ksi = 0.4;
-
+const double C1 = 0.0605765, C2 = -1.06058;
+const double C_1 = -0.472046, C_2 = -4.33092;
+const double sqrt_ksi_div = sqrt(ksi / (ksi + 1));
+const double sqrt_ksi = sqrt(ksi);
+const double control_eps = 0.0000005;
 //k1(x), 0 <= x < кси
 double k1(double x);
 
@@ -57,3 +61,5 @@ void diagonals(int n, vector<double>& bottom_d, vector<double>& center_d, vector
 vector<double> free_comp(int n, double (*f1)(double), double (*f2)(double));
 
 vector<double> progonka(int n, vector<double> bottom_d, vector<double> center_d, vector<double> upper_d, vector<double> free);
+
+vector<double> fun(int n);

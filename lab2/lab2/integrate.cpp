@@ -25,6 +25,10 @@ double f1_test(double x) { return ksi; }
 
 double f2_test(double x) { return exp(-ksi); }
 
+double f1_an(double x) { return (C1 * exp(sqrt_ksi_div * x) + C2 * exp(-sqrt_ksi_div * x) + 1); }
+
+double f2_an(double x) { return (C_1 * exp(sqrt_ksi * x) + C_2 * exp(-sqrt_ksi * x) + exp(-ksi) / (ksi * ksi)); }
+
 vector<double> calculation_a(int n, double (*k1)(double), double (*k2)(double))
 {
 	vector<double> result(n + 1);
@@ -136,5 +140,23 @@ vector<double> progonka(int n, vector<double> bottom_d, vector<double> center_d,
 	result[n] = (free[n] + bottom_d[n] * betta[n]) / (1 - bottom_d[n] * alpha[n]);
 	for (int i = n - 1; i >= 0; i--)
 		result[i] = alpha[i + 1] * result[i + 1] + betta[i + 1];
+	return result;
+}
+
+vector<double> fun(int n)
+{
+	vector<double> result(n+1);
+	result[0] = 0;
+	double x = 0;
+	double h = 1. / n;
+	for (int i = 1; i <= n; i++)
+	{
+		double x_next = x + h;
+		if (x_next <= ksi)
+			result[i] = f1_an(x);
+		else
+			result[i] = f2_an(x);
+		x = x_next;
+	}
 	return result;
 }
