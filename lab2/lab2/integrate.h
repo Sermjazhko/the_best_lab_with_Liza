@@ -5,8 +5,12 @@
 using namespace std;
 
 const double ksi = 0.4;
-
-//k1(x), 0 <= x < кси
+const double C1 = 0.0605765, C2 = -1.06058;
+const double C_1 = -0.472046, C_2 = -4.33092;
+const double sqrt_ksi_div = sqrt(ksi / (ksi + 1));
+const double sqrt_ksi = sqrt(ksi);
+const double control_eps = 0.0000005;
+//k1(x), 0 <= x < ���
 double k1(double x);
 
 //q1(x), 0 <= x < кси
@@ -86,3 +90,5 @@ vector<double> free_comp(int n, double (*f1)(double), double (*f2)(double));
 // в ячейках от 1 до n-1 хранятся коэффициенты f1, f2, . . ., fn-1, без знака!
 // в 0 и последней ячейках должны быть m1 и m2 соответственно
 vector<double> progonka(int n, vector<double> bottom_d, vector<double> center_d, vector<double> upper_d, vector<double> free);
+
+vector<double> fun(int n);
