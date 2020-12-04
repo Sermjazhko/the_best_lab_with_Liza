@@ -5,12 +5,12 @@
 using namespace std;
 
 const double ksi = 0.4;
-const double C1 = 0.0605765, C2 = -1.06058;
-const double C_1 = -0.472046, C_2 = -4.33092;
+const double C1 = 0.0605572228666504, C2 = -1.06055722286665;
+const double C_1 = -0.472024550734437, C_2 = -4.33108482358006;
 const double sqrt_ksi_div = sqrt(ksi / (ksi + 1));
 const double sqrt_ksi = sqrt(ksi);
 const double control_eps = 0.0000005;
-//k1(x), 0 <= x < ���
+//k1(x), 0 <= x < кси
 double k1(double x);
 
 //q1(x), 0 <= x < кси

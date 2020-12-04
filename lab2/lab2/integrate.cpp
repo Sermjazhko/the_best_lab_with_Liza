@@ -153,9 +153,9 @@ vector<double> fun(int n)
 	{
 		double x_next = x + h;
 		if (x_next <= ksi)
-			result[i] = f1_an(x);
+			result[i] = f1_an(x_next);
 		else
-			result[i] = f2_an(x);
+			result[i] = f2_an(x_next);
 		x = x_next;
 	}
 	return result;
